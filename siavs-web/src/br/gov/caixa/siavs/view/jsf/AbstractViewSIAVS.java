@@ -427,7 +427,8 @@ public abstract class AbstractViewSIAVS<T extends AbstractVOSIAVS> extends Abstr
 		unidade.setNuNatural(57);
 
 		FuncionarioCaixaVO funcVo = new FuncionarioCaixaVO();
-		funcVo.setNuMatricula(matricula[0]);
+		funcVo.setNuMatricula("C577394");
+		funcVo.setDeMatricula("C577394");
 		funcVo.setNoFuncionario(matricula[0]);
 		funcVo.setUnidade(unidade);
 		funcVo.setNuTipoFuncao(43);
@@ -440,7 +441,7 @@ public abstract class AbstractViewSIAVS<T extends AbstractVOSIAVS> extends Abstr
 		return usu;
 	}
 
-	public FuncionarioCaixaVO consultaUsuario() {
+	/*public FuncionarioCaixaVO consultaUsuario() {
 		try {
 			FuncionarioCaixaVO func = new FuncionarioCaixaVO();
 			func.setDeMatricula("C577394");
@@ -455,7 +456,7 @@ public abstract class AbstractViewSIAVS<T extends AbstractVOSIAVS> extends Abstr
 		}
 
 		return null;
-	}
+	}*/
 
 
 }
