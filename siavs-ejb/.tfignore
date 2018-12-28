@@ -1,0 +1,5 @@
+# diretórios ignorados
+target
+.settings
+.project
+.classpath

@@ -1,0 +1,114 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+<!-- ************************************************************************************************************************************* -->
+
+	<groupId>br.gov.caixa.siavs</groupId>
+	<artifactId>siavs-bom</artifactId>
+	<version>1.0.0</version>
+	<packaging>pom</packaging>
+	<description>Agrupador para o SIAVS</description>
+
+	<modules>
+		<module>siavs-web</module>
+		<module>siavs-ejb</module>
+		<module>siavs-ear</module>
+	</modules>
+
+<!-- ************************************************************************************************************************************* -->
+
+	<properties>
+		<!-- Sobrescrevendo propriedades utilizadas pelos plugins do maven -->
+		<!-- todos -->
+		<maven.compiler.source>1.6</maven.compiler.source>
+		<maven.compiler.target>1.6</maven.compiler.target>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.build.finalName>siavs</project.build.finalName>
+		<!-- war -->
+		<failOnMissingWebXml>false</failOnMissingWebXml>
+		<primaryArtifact>false</primaryArtifact>
+		<!-- ejb -->
+		<ejb.ejbVersion>3.1</ejb.ejbVersion>
+		<ejb.generateClient>true</ejb.generateClient>
+
+		<!-- Versões das dependências -->
+		<richfaces.version>4.3.2.Final</richfaces.version>
+		<jboss.version>2.0.0.Final</jboss.version>
+		<spread.version>1.0.0</spread.version>
+	</properties>
+
+<!-- ************************************************************************************************************************************* -->
+
+	<build>
+
+<!-- ************************************************************************************************************************************* -->
+
+		<sourceDirectory>src</sourceDirectory>
+		<finalName>${project.build.finalName}</finalName>
+
+		<resources>
+			<resource>
+				<directory>src</directory>
+				<excludes>
+					<exclude>**/*.java</exclude>
+				</excludes>
+			</resource>
+		</resources>
+
+<!-- ************************************************************************************************************************************* -->
+
+		<plugins>
+
+			<plugin>
+				<groupId>org.jboss.as.plugins</groupId>
+				<artifactId>jboss-as-maven-plugin</artifactId>
+				<version>7.4.Final</version>
+			</plugin>
+
+		</plugins>
+
+<!-- ************************************************************************************************************************************* -->
+	</build>
+
+<!-- ************************************************************************************************************************************* -->
+
+	<!-- Definindo controlador -->
+	<dependencyManagement>
+        <dependencies>
+
+			<!-- RichFaces -->
+            <dependency>
+                <groupId>org.richfaces</groupId>
+                <artifactId>richfaces-bom</artifactId>
+                <version>${richfaces.version}</version>
+                <scope>import</scope>
+                <type>pom</type>
+            </dependency>
+
+			<!-- Jboss -->
+			<dependency>
+				<groupId>org.jboss.spec</groupId>
+				<artifactId>jboss-javaee6-specs-bom</artifactId>
+				<version>${jboss.version}</version>
+				<scope>import</scope>
+				<type>pom</type>
+			</dependency>
+
+			<!-- Framework -->
+			<dependency>
+				<groupId>br.com.spread.framework</groupId>
+				<artifactId>spread-framework-bom</artifactId>
+				<version>${spread.version}</version>
+				<scope>import</scope>
+				<type>pom</type>
+			</dependency>
+
+
+
+        </dependencies>
+    </dependencyManagement>
+
+<!-- ************************************************************************************************************************************* -->
+
+</project>

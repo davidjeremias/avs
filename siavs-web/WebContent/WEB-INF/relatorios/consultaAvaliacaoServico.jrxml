@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="consultaAvaliacaoServico" pageWidth="1725" pageHeight="595" orientation="Landscape" whenNoDataType="AllSectionsNoDetail" columnWidth="1725" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="0293e2cb-3a6c-47d2-8fed-661ad6b02b93">
+	<property name="ireport.zoom" value="0.6209213230591563"/>
+	<property name="ireport.x" value="232"/>
+	<property name="ireport.y" value="0"/>
+	<style name="coluna" mode="Opaque" forecolor="#000000" backcolor="#CCCCCC" fill="Solid" hAlign="Center" vAlign="Middle" pattern="" fontSize="11" isBold="true">
+		<pen lineWidth="1.0" lineStyle="Solid"/>
+	</style>
+	<style name="linha" mode="Transparent" forecolor="#000000" hAlign="Center" vAlign="Middle" pattern="" fontSize="11" isBold="false" pdfEncoding="Cp1252"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="grupo" class="br.gov.caixa.siavs.vo.GrupoVO">
+		<fieldDescription><![CDATA[grupo]]></fieldDescription>
+	</field>
+	<field name="dtAvaliacao" class="java.util.Date">
+		<fieldDescription><![CDATA[dtAvaliacao]]></fieldDescription>
+	</field>
+	<field name="funcionarioCaixaLocal" class="br.gov.caixa.siavs.vo.FuncionarioCaixaLocalVO">
+		<fieldDescription><![CDATA[funcionarioCaixaLocal]]></fieldDescription>
+	</field>
+	<field name="deComentario" class="java.lang.String">
+		<fieldDescription><![CDATA[deComentario]]></fieldDescription>
+	</field>
+	<field name="nuAvaliacao" class="java.lang.Long">
+		<fieldDescription><![CDATA[nuAvaliacao]]></fieldDescription>
+	</field>
+	<field name="problema" class="br.gov.caixa.siavs.vo.ProblemaVO">
+		<fieldDescription><![CDATA[problema]]></fieldDescription>
+	</field>
+	<field name="servico" class="br.gov.caixa.siavs.vo.ServicoVO">
+		<fieldDescription><![CDATA[servico]]></fieldDescription>
+	</field>
+	<field name="vrNotaAvaliacao" class="java.lang.Double">
+		<fieldDescription><![CDATA[vrNotaAvaliacao]]></fieldDescription>
+	</field>
+	<columnHeader>
+		<band height="40">
+			<staticText>
+				<reportElement uuid="f60b942c-4d03-45ae-af30-515c382d4cb4" style="coluna" x="0" y="0" width="44" height="40"/>
+				<textElement/>
+				<text><![CDATA[Id]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="442c4fbf-782b-4a0f-87bd-07f9e8cdec9f" style="coluna" x="44" y="0" width="184" height="40"/>
+				<textElement/>
+				<text><![CDATA[Grupo]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="3204928c-f4e4-43d8-be06-aa404df351b1" style="coluna" x="228" y="0" width="246" height="40"/>
+				<textElement/>
+				<text><![CDATA[Serviço]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="445373e8-a5a9-43bd-874e-03f00cf19994" style="coluna" x="474" y="0" width="300" height="40"/>
+				<textElement/>
+				<text><![CDATA[Agência]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="4a3cf100-c181-45af-8740-c9c0916b19ce" style="coluna" x="774" y="0" width="111" height="40"/>
+				<textElement/>
+				<text><![CDATA[Telefone]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="ce638bba-39e9-4549-9c87-8d5db83004bf" style="coluna" x="885" y="0" width="75" height="40"/>
+				<textElement/>
+				<text><![CDATA[Data]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="8d62704a-d6a0-4fe4-a0ba-2e7e50e05a2a" style="coluna" x="960" y="0" width="36" height="40"/>
+				<textElement/>
+				<text><![CDATA[Aval]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="01c62158-51d3-4f09-9ba6-7dd617c5eb1b" style="coluna" x="996" y="0" width="343" height="40"/>
+				<textElement/>
+				<text><![CDATA[Usuário]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="9bb41543-310c-40a6-b0c2-318c24c8f473" style="coluna" x="1339" y="0" width="236" height="40"/>
+				<textElement/>
+				<text><![CDATA[Descrição]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="ab774dc7-0a4d-4756-a05a-c5722a366a4c" style="coluna" x="1575" y="0" width="150" height="40"/>
+				<textElement/>
+				<text><![CDATA[Problemas]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="20">
+			<textField isBlankWhenNull="true">
+				<reportElement uuid="74e57093-06f9-49ab-945b-7a19acb457fe" style="linha" x="0" y="0" width="44" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$V{REPORT_COUNT}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement uuid="a5498887-e6c9-458a-ad08-6eae4fb0caf2" style="linha" x="44" y="0" width="184" height="20"/>
+				<textElement textAlignment="Left"/>
+				<textFieldExpression><![CDATA[$F{grupo}.getNoGrupo()]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement uuid="bb2932e9-dfac-4f63-8ea6-eff2dbe60ad1" style="linha" x="228" y="0" width="246" height="20"/>
+				<textElement textAlignment="Left"/>
+				<textFieldExpression><![CDATA[$F{servico}.getDeServico()]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement uuid="ac3fe127-5866-4c32-8c83-19b8420ab4be" style="linha" x="474" y="0" width="300" height="20"/>
+				<textElement textAlignment="Left"/>
+				<textFieldExpression><![CDATA[$F{funcionarioCaixaLocal}.getUnidade().getNuUnidade() + " - " + $F{funcionarioCaixaLocal}.getUnidade().getNoUnidade() + ", " + $F{funcionarioCaixaLocal}.getUnidade().getSgUf()]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement uuid="b66ed564-f305-4829-917f-9e62b9715fd0" style="linha" x="774" y="0" width="111" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{funcionarioCaixaLocal}.getUnidade().getNuTelefone()]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd/MM/yyyy" isBlankWhenNull="true">
+				<reportElement uuid="91cfbdbc-6e98-4067-83f7-f3d9671ec824" style="linha" x="885" y="0" width="75" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{dtAvaliacao}]]></textFieldExpression>
+			</textField>
+			<textField pattern="###0" isBlankWhenNull="true">
+				<reportElement uuid="9376b925-1ad0-4101-94c1-756a3d335d3b" style="linha" x="960" y="0" width="36" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{vrNotaAvaliacao}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement uuid="728e9b62-f986-4459-8985-41e4b2afe72a" style="linha" x="996" y="0" width="343" height="20"/>
+				<textElement textAlignment="Left"/>
+				<textFieldExpression><![CDATA[$F{funcionarioCaixaLocal}.getFuncionarioCaixa().getNoFuncionario() + " - " + $F{funcionarioCaixaLocal}.getFuncionarioCaixa().getDeMatricula()]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement uuid="e5931ce0-3b72-4cbe-9bb8-cddf99e1f868" style="linha" x="1339" y="0" width="236" height="20"/>
+				<textElement textAlignment="Left"/>
+				<textFieldExpression><![CDATA[$F{deComentario}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement uuid="6790c4b9-e008-4319-999e-f89794aadb2e" style="linha" x="1575" y="0" width="150" height="20"/>
+				<textElement textAlignment="Left"/>
+				<textFieldExpression><![CDATA[$F{problema}.getDeProblema()]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

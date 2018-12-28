@@ -1,0 +1,52 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html 
+	xmlns="http://www.w3.org/1999/xhtml" 
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:a4j="http://richfaces.org/a4j"
+>
+
+<h:head>
+	<title>SIAVS</title>
+	<h:outputScript library="scripts" name="jquery-1.9.1.js" target="head"/>
+	<h:outputScript library="scripts" name="TextNumero.js" target="body"/>
+	<h:outputScript library="scripts" name="TextAlfaNumero.js" target="body"/>
+	<h:outputScript library="scripts" name="TextData.js" target="body"/>
+	<h:outputScript library="scripts" name="TextUtil.js" target="body"/>
+	<h:outputScript library="scripts" name="util.js" target="body"/>
+	 
+	<h:outputStylesheet library="css" name="siavs.css"/>
+	<h:outputStylesheet library="css" name="header.css"/>
+	<h:outputStylesheet library="css" name="menu.css"/>
+	<h:outputStylesheet library="css" name="reset.css"/>
+	<h:outputStylesheet library="css" name="button.css"/>
+	<h:outputStylesheet library="css" name="clearfix.css"/>
+	<h:outputStylesheet library="css" name="especificos.css"/>
+</h:head>
+
+<h:body xmlns:siavs="http://java.sun.com/jsf/composite/siavs">
+	<script type="text/javascript">
+	    	function entrar(){
+				$("#j_username").val('C012345');
+				$("#j_password").val('123');
+	    		
+	    		var form = Util.get("formLogin");
+	    		form.action = "j_security_check";
+	    		form.submit();
+
+	    		return true;
+	    	}
+
+	    	$(document).ready(function() {
+		    	entrar();
+	    	});
+	  	</script>
+
+	<h:form id="formLogin" prependId="false">
+		<h:inputHidden id="j_username" autofocus="true" maxlength="7" />
+		<h:inputHidden id="j_password" />
+	</h:form>
+</h:body>
+</html>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<project name="SIAVS" default="deploy" basedir=".">
+
+	<target name="deploy">
+
+	</target>
+
+	<target name="mock-enable">
+
+		<copy file="${basedir}/siavs-fake/siavs-web/WebContent/auto-login.xhtml" tofile="${basedir}/siavs-web/WebContent/auto-login.xhtml" verbose="true" overwrite="true" />
+		<copy file="${basedir}/siavs-fake/siavs-web/WebContent/WEB-INF/web.xml" tofile="${basedir}/siavs-web/WebContent/WEB-INF/web.xml" verbose="true" overwrite="true" />
+		<copy file="${basedir}/siavs-fake/siavs-web/src/br/gov/caixa/siavs/security/LoginModuleSIAVS.java" tofile="${basedir}/siavs-web/src/br/gov/caixa/siavs/security/LoginModuleSIAVS.java" verbose="true" overwrite="true" />
+		<!--
+        <copy file="${basedir}/siavs-fake/siavs-web/WebContent/composicoes/menu.xhtml" 
+              tofile="${basedir}/siavs-web/WebContent/composicoes/menu.xhtml" verbose="true" overwrite="true" />
+        -->
+
+	</target>
+
+	<target name="mock-disable">
+		<exec executable="bash" dir="${basedir}">
+			<arg value="-c" />
+			<arg value="rm ${basedir}/siavs-web/WebContent/auto-login.xhtml" />
+		</exec>
+		<exec executable="bash" dir="${basedir}">
+			<arg value="-c" />
+			<!--	
+	    	<arg value="git checkout ${basedir}/siavs-web/WebContent/WEB-INF/web.xml 
+                            ${basedir}/siavs-web/src/br/gov/caixa/siavs/security/LoginModuleSIAVS.java
+                            ${basedir}/siavs-web/WebContent/composicoes/menu.xhtml" />
+        	-->
+			<arg value="git checkout ${basedir}/siavs-web/WebContent/WEB-INF/web.xml 
+                            ${basedir}/siavs-web/src/br/gov/caixa/siavs/security/LoginModuleSIAVS.java" />
+		</exec>
+	</target>
+
+</project>
+
+
